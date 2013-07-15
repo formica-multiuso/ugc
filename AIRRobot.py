@@ -14,7 +14,9 @@ class AIRRobot(IRobot,threading.Thread):
 	def run(self):
 		IRobot.SendCommand(self,"INIT")
 		while 1:
-			pass
-
+			i = 0
+			if i == 200:
+				continue
+			i = i+1
 
 
