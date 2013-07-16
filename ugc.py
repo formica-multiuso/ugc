@@ -1,17 +1,10 @@
-
-
-
-
-
-
-
-
-
-
-
 import sys
 import threading
+import signal
 from AIRRobot import *
+def signal_handler(signal, frame):
+        print 'Exiting...'
+        sys.exit(0)
 
 def main():
 
@@ -23,8 +16,11 @@ def main():
 	port = '3000'
 	
 	
-	quad = AIRRobot(host,port)
+	quad = AIRRobot(host,port,"UAV1")
+	
 	quad.start()
+	signal.signal(signal.SIGINT, signal_handler)
+	signal.pause()
 	quad.join()
 
 if __name__ == '__main__':

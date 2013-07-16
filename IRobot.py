@@ -20,11 +20,24 @@ class IRobot:
 		self.s.connect((host,int(port)))
 		self.stringBuffer = self.s.recv(1024)
 
-	def SendCommand(self,command):
-		if command == 'INIT':
+	def SendCommand(self,command,param_list):
+		if command == 'AIRRobot INIT':
 			self.s.send('INIT {ClassName USARBot.AIRRobot} {Location 0,0000, 0,0000, 0,0000} {Rotation 0,0000, 0,0000, 0,0000}\r\n')
 			self.stringBuffer = self.s.recv(1024)
-			
+
+		if command == 'AIRRobot DRIVE AltitudeVel':	
+			self.s.send('DRIVE {AltitudeVelocity ' + param_list[0] + '}\r\n')
+			self.stringBuffer = self.s.recv(1024)
+		
+		if command == 'AIRRobot DRIVE RotationalVel':
+			self.s.send('DRIVE {RotationalVelocity ' + param_list[0] + '}\r\n')	
+			self.stringBuffer = self.s.recv(1024)
+		
+		if command == 'AIRRobot DRIVE LinearVel':
+			self.s.send('DRIVE {LinearVelorcity ' + param_list[0] + '}\r\n')
+			self.stringBuffer = self.s.recv(1024)
+
+
 	def RobotEngine(self):
 		pass
 
