@@ -1,10 +1,12 @@
 import sys
+import os
 import threading
 import signal
 from AIRRobot import *
+
 def signal_handler(signal, frame):
         print 'Exiting...'
-        sys.exit(0)
+        os._exit(0)
 
 def main():
 
