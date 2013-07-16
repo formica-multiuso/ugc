@@ -1,4 +1,5 @@
 import sys
+import os
 import socket
 import threading
 import time
@@ -26,6 +27,7 @@ class AIRRobot(IRobot,threading.Thread):
 		time.sleep(5)
 		IRobot.SendCommand(self,"AIRRobot DRIVE LinearVel",['1'])
 		time.sleep(5)
+		os._exit(1)
 
 
 
