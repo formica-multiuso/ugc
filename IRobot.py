@@ -11,7 +11,7 @@ class IRobot:
 		self.r = 0
 		self.p = 0
 		self.y = 0
-		self.name = ''
+		self.name = name
 		self.USARconnect(host,port)
 		self.parse = GamebotsParser(self.s,name)
 		self.parse.start()
@@ -23,19 +23,14 @@ class IRobot:
 	def SendCommand(self,command,param_list):
 		if command == 'AIRRobot INIT':
 			self.s.send('INIT {ClassName USARBot.AIRRobot} {Location 0,0000, 0,0000, 0,0000} {Rotation 0,0000, 0,0000, 0,0000}\r\n')
-#			self.stringBuffer = self.s.recv(2048)
-
 		if command == 'AIRRobot DRIVE AltitudeVel':	
 			self.s.send('DRIVE {AltitudeVelocity ' + param_list[0] + '}\r\n')
-#			self.stringBuffer = self.s.recv(2048)
 		
 		if command == 'AIRRobot DRIVE RotationalVel':
 			self.s.send('DRIVE {RotationalVelocity ' + param_list[0] + '}\r\n')	
-#			self.stringBuffer = self.s.recv(2048)
 		
 		if command == 'AIRRobot DRIVE LinearVel':
 			self.s.send('DRIVE {LinearVelocity ' + param_list[0] + '}\r\n')
-#			self.stringBuffer = self.s.recv(2048)
 
 	def RobotEngine(self):
 		pass
