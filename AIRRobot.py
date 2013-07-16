@@ -20,17 +20,15 @@ class AIRRobot(IRobot,threading.Thread):
 		time.sleep(5)
 		IRobot.SendCommand(self,"AIRRobot DRIVE AltitudeVel",['0'])
 		time.sleep(5)
-		IRobot.SendCommand(self,"AIRRobot DRIVE RotationalVel",['0.1'])
-		time.sleep(5)
-		IRobot.SendCommand(self,"AIRRobot DRIVE LinearVel",['-1'])
+		IRobot.SendCommand(self,"AIRRobot DRIVE LinearVel",['1'])
 		time.sleep(5)
 		i = 0
 		while 1:
 			if i == 1000000:
 				break
 			i += 1
-			self.s.recv(1024)
-			print "\033[34m" + "[" + self.name + "] " + "\033[0m" + self.stringBuffer
+		#	self.s.recv(2048)
+		#	print "\033[34m" + "[" + self.name + "] " + "\033[0m" + self.stringBuffer
 			#print i
 
 
