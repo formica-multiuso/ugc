@@ -4,7 +4,7 @@ import sys
 from GamebotsParser import *
 
 class IRobot:
-	def __init__(self,host,port):
+	def __init__(self,host,port,name):
 		self.posx = 0
 		self.posy = 0
 		self.posz = 0
@@ -13,14 +13,12 @@ class IRobot:
 		self.y = 0
 		self.name = ''
 		self.USARconnect(host,port)
-		self.stringBuffer = ''
-		self.parse = GamebotsParser(self.s)
+		self.parse = GamebotsParser(self.s,name)
 		self.parse.start()
 
 	def USARconnect(self,host,port):
 		self.s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 		self.s.connect((host,int(port)))
-		self.stringBuffer = self.s.recv(2048)
 
 	def SendCommand(self,command,param_list):
 		if command == 'AIRRobot INIT':
