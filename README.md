@@ -3,5 +3,4 @@ USARSim Genoa Client written in Python
 AUTHOR: Roberto Marino	<formica@member.fsf.org>
 
 USAGE:
-- Change the variable 'host' inside ugc.py using your USARSim ip address
-- run: 'python ugc.py'
+- run: 'python ugc.py <USARsim_server_ip_address>'

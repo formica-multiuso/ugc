@@ -13,10 +13,11 @@ class AIRRobot(IRobot,threading.Thread):
 
 	def run(self):
 		IRobot.SendCommand(self,"INIT")
+		i = 0
 		while 1:
-			i = 0
-			if i == 200:
-				continue
-			i = i+1
+			if i == 20000000:
+				break
+			i += 1
+			#print i
 
 
