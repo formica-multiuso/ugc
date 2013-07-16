@@ -12,7 +12,11 @@ class GamebotsParser(threading.Thread):
 		while 1:
 			rlist, wlist, elist = select.select( [self.socket], [], [] )
 			self.messageBuffer = self.socket.recv(2048)
-			print "\033[34m" + "[" + self.name + "] " + "\033[0m"
-			print self.messageBuffer
+			
+			messages = self.messageBuffer.split('\n')
+		
+			print "\033[34m" + "[" + self.name + "] " + "\033[0m"	
+			for message in messages:
+				print message 
 			
 			
