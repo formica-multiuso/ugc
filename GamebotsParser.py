@@ -27,8 +27,10 @@ class GamebotsParser(threading.Thread):
 					tokens = payload.split('{')
 					tokens = ''.join(tokens)
 					tokens = tokens.split('}')
+					# Here I need to return sensors (SEN) information to the IRobot class splitted in dictionary
 					for token in tokens:
 						print token
+					
 					
 			
 	def parser(self):

@@ -13,7 +13,7 @@ class IRobot:
 		self.y = 0
 		self.name = name
 		self.USARconnect(host,port)
-		self.parse = GamebotsParser(self.s,name)
+		self.parse = GamebotsParser(self.s,name)	# Sensor informations from the robot
 		self.parse.start()
 
 	def USARconnect(self,host,port):
